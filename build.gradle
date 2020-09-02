@@ -1,16 +1,27 @@
 plugins {
-    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'java-library'
+    id 'application'
+}
+javafx {
+    version = "11.0.2"
+    modules = ['javafx.controls']
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'com.renamer'
+version '0.5-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
 }
-
+application {
+    mainClass = 'com.renamer.RenamerApp'
+}
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    api group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.3'
 }
